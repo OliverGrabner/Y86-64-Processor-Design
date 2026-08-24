@@ -1,0 +1,5 @@
+0x000: 30f00a00000000000000 | irmovq $10, %rax
+0x00a: 50701400000000000000 | mrmovq 20(%rax), %rdi
+                            | 
+0x01e:                      | .pos 30
+0x01e: 3412feca7698cdab     | .quad 0xabcd9876cafe1234

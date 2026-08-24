@@ -1,0 +1,48 @@
+jmp $64
+
+.pos 64
+irmovq $32, %rsp
+
+irmovq $16, %rax
+irmovq $32, %rbx
+
+irmovq $0, %rdi
+
+andq %rbx, %rax
+rrmovq %rax, %r8
+subq %rax, %rdi
+jne $1000
+jg $2000
+jl $3000
+
+irmovq $17, %rax
+irmovq $33, %rbx
+
+pushq %rax
+pushq %rdi
+xorq %rbx, %rax
+rrmovq %rax, %r9
+subq %rax, %rdi
+je $1000
+jg $2000
+jge $3000
+popq %rdi
+popq %rax
+
+pushq %rax
+subq %rbx, %rax
+rrmovq %rax, %r10
+subq %rax, %rdi
+je $1000
+jl $2000
+jle $3000
+popq %rax
+
+irmovq $16, %rcx
+addq %r10, %rcx
+
+irmovq $9223372036854775807, %r11
+irmovq $9223372036854775807, %r12
+addq %r12, %r11
+
+jg $512

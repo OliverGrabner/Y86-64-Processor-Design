@@ -1,0 +1,20 @@
+jmp $64
+
+.pos 64
+irmovq $10, %rax
+irmovq $20, %rbx
+addq %rbx, %rax
+
+irmovq $16, %rdi
+rmmovq %rbx, (%rdi)
+mrmovq (%rdi), %r8
+
+irmovq $32, %rsp
+irmovq $2, %r9
+pushq %r9
+pushq %rax
+addq %rax, %r9
+rrmovq %r9, %r10
+popq %rax
+popq %r9
+

@@ -1,0 +1,48 @@
+0x000: 704000000000000000   | jmp $64
+                            | 
+0x040:                      | .pos 64
+0x040: 30f42000000000000000 | irmovq $32, %rsp
+                            | 
+0x04a: 30f01000000000000000 | irmovq $16, %rax
+0x054: 30f32000000000000000 | irmovq $32, %rbx
+                            | 
+0x05e: 30f70000000000000000 | irmovq $0, %rdi
+                            | 
+0x068: 6230                 | andq %rbx, %rax
+0x06a: 2008                 | rrmovq %rax, %r8
+0x06c: 6107                 | subq %rax, %rdi
+0x06e: 74e803000000000000   | jne $1000
+0x077: 76d007000000000000   | jg $2000
+0x080: 72b80b000000000000   | jl $3000
+                            | 
+0x089: 30f01100000000000000 | irmovq $17, %rax
+0x093: 30f32100000000000000 | irmovq $33, %rbx
+                            | 
+0x09d: a00f                 | pushq %rax
+0x09f: a07f                 | pushq %rdi
+0x0a1: 6330                 | xorq %rbx, %rax
+0x0a3: 2009                 | rrmovq %rax, %r9
+0x0a5: 6107                 | subq %rax, %rdi
+0x0a7: 73e803000000000000   | je $1000
+0x0b0: 76d007000000000000   | jg $2000
+0x0b9: 75b80b000000000000   | jge $3000
+0x0c2: b07f                 | popq %rdi
+0x0c4: b00f                 | popq %rax
+                            | 
+0x0c6: a00f                 | pushq %rax
+0x0c8: 6130                 | subq %rbx, %rax
+0x0ca: 200a                 | rrmovq %rax, %r10
+0x0cc: 6107                 | subq %rax, %rdi
+0x0ce: 73e803000000000000   | je $1000
+0x0d7: 72d007000000000000   | jl $2000
+0x0e0: 71b80b000000000000   | jle $3000
+0x0e9: b00f                 | popq %rax
+                            | 
+0x0eb: 30f11000000000000000 | irmovq $16, %rcx
+0x0f5: 60a1                 | addq %r10, %rcx
+                            | 
+0x0f7: 30fbffffffffffffff7f | irmovq $9223372036854775807, %r11
+0x101: 30fcffffffffffffff7f | irmovq $9223372036854775807, %r12
+0x10b: 60cb                 | addq %r12, %r11
+                            | 
+0x10d: 760002000000000000   | jg $512

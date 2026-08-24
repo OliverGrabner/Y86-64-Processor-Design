@@ -1,0 +1,20 @@
+0x000: 704000000000000000   | jmp $64
+                            | 
+0x040:                      | .pos 64
+0x040: 30f00a00000000000000 | irmovq $10, %rax
+0x04a: 30f31400000000000000 | irmovq $20, %rbx
+0x054: 6030                 | addq %rbx, %rax
+                            | 
+0x056: 30f71000000000000000 | irmovq $16, %rdi
+0x060: 40370000000000000000 | rmmovq %rbx, (%rdi)
+0x06a: 50870000000000000000 | mrmovq (%rdi), %r8
+                            | 
+0x074: 30f42000000000000000 | irmovq $32, %rsp
+0x07e: 30f90200000000000000 | irmovq $2, %r9
+0x088: a09f                 | pushq %r9
+0x08a: a00f                 | pushq %rax
+0x08c: 6009                 | addq %rax, %r9
+0x08e: 209a                 | rrmovq %r9, %r10
+0x090: b00f                 | popq %rax
+0x092: b09f                 | popq %r9
+                            | 

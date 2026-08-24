@@ -1,0 +1,5 @@
+irmovq $10, %rax
+mrmovq 20(%rax), %rdi
+
+.pos 30
+.quad 0xabcd9876cafe1234
